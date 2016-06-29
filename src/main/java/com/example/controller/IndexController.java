@@ -8,8 +8,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class IndexController {
 
     @RequestMapping("/")
-    @ResponseBody
     public String index(){
-        return "Olá Mundo";
+        return "index";
+    }
+
+    @RequestMapping("/index")
+    public String home(){
+        return "index";
     }
 }

@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar target/demo-0.0.1-SNAPSHOT --port
+web: java $JAVA_OPTS -jar target/demo-0.0.1-SNAPSHOT.war --port

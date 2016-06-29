@@ -18,8 +18,8 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 
     @Autowired
     private Environment environment;
-    @Bean
 
+    @Bean
     public DataSource dataSource() throws URISyntaxException {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");

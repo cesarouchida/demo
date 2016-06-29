@@ -40,11 +40,6 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.0.RC2" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.3.0.RC2" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.3.0.RC2" />
-          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-tomcat:1.4.0.M3" />
-          <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:8.0.33" />
-          <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-el:8.0.33" />
-          <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-logging-juli:8.0.33" />
-          <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:8.0.33" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.0.RC2" />
         </element>
       </element>

@@ -1,16 +1,15 @@
 package com.example.configuration;
 
-import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 
 import javax.sql.DataSource;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 @Configuration
-@Profile("prod")
+//@Profile("prod")
 public class JPAProductionConfiguration {
 
 //    @Autowired
@@ -32,5 +31,30 @@ public class JPAProductionConfiguration {
 //        dataSource.setPassword(dbUrl.getUserInfo().split(":")[1]);
 //        return dataSource;
 //    }
+
+    @Bean
+    @Profile("prod")
+    public DataSource postgresDataSource() throws URISyntaxException{
+        String databaseUrl = System.getenv("DATABASE_URL");
+
+        URI dbUri = new URI(databaseUrl);
+
+        String username = dbUri.getUserInfo().split(":")[0];
+        String password = dbUri.getUserInfo().split(":")[1];
+        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':'
+                + dbUri.getPort() + dbUri.getPath();
+
+        org.apache.tomcat.jdbc.pool.DataSource dataSource
+                = new org.apache.tomcat.jdbc.pool.DataSource();
+        dataSource.setDriverClassName("org.postgresql.Driver");
+        dataSource.setUrl(dbUrl);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+        dataSource.setTestOnBorrow(true);
+        dataSource.setTestWhileIdle(true);
+        dataSource.setTestOnReturn(true);
+        dataSource.setValidationQuery("SELECT 1");
+        return dataSource;
+    }
 
 }

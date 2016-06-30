@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Ola Mundo</title>
@@ -7,5 +7,22 @@
 <body>
     <h1>Olá Mundo</h1>
     <p>Teste Spring Boot - Heroku</p>
+
+    <div th:if="${contatos}">
+        <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>NOME</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="contato : ${contatos}">
+                    <td th:text="${contato.id}"/>
+                    <td th:text="${contato.nome}"/>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

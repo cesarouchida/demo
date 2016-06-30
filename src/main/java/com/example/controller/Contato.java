@@ -3,6 +3,7 @@ package com.example.controller;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 
@@ -10,6 +11,7 @@ import java.io.Serializable;
 public class Contato implements Serializable{
 
     @Id
+    @GeneratedValue
     private long id;
 
     @NotBlank

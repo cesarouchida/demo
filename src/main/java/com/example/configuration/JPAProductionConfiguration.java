@@ -44,7 +44,7 @@ public class JPAProductionConfiguration {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
 
-        URI dbUrl = new URI(environment.getProperty("dcg33dmvcn7p1a"));
+        URI dbUrl = new URI(environment.getProperty("DATABASE_URL"));
         dataSource.setUrl("jdbc:postgresql://" +
                             dbUrl.getHost() +  ":" +
                             dbUrl.getPort() +

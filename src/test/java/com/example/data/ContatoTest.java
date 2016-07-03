@@ -26,4 +26,14 @@ public class ContatoTest extends DemoApplicationTests{
     public void lendoContato(){
         assertEquals("Cesar", contato.getNome());
     }
+
+    @Test
+    public void insereContato(){
+        Contato c1 = new Contato();
+        c1.setNome("Bboy");
+        c1.setId(2);
+
+        assertEquals("Bboy", c1.getNome());
+        assertEquals(1, contato.getId());
+    }
 }

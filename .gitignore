@@ -1,5 +1,6 @@
 # Ignorando arquivos de configuração do ambiente
 .*
+demo.iml
 
 # Exceção do gitignore
 !.gitignore

@@ -3,3 +3,6 @@
 
 # Exceção do gitignore
 !.gitignore
+
+# Target
+*target

@@ -16,10 +16,10 @@ public class JPADevConfiguration {
     @Bean
     public DataSource dataSource(){
         return DataSourceBuilder.create()
+                .url("jdbc:mysql://localhost/casadocodigo_test?autoReconnect=true&useSSL=false")
                 .driverClassName("com.mysql.jdbc.Driver")
                 .username("root")
                 .password("123456")
-                .url("jdbc:mysql://localhost/casadocodigo_test")
         .build();
     }
 }

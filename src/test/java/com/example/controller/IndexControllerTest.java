@@ -24,32 +24,20 @@ public class IndexControllerTest {
 
     @After
     public void tearDown(){
-        if (this.driver != null) {
-            driver.manage().deleteAllCookies();
-            driver.close();
-        }
+        driver.close();
     }
 
     @Test
     public void acessaPaginaInicial(){
-
-        if(driver == null) setUp();
-//        drivers.get(HOME);
-        driver.navigate().to(HOME);
+        driver.get(HOME);
 
         assertTrue(driver.getPageSource().contains("Olá Mundo"));
-
-        if (driver != null) tearDown();
     }
 
     @Test
     public void verificaSeTemNomeContato(){
-        if(driver == null) setUp();
+        driver.get(INDEX);
 
-//        drivers.get(INDEX);
-        driver.navigate().to(INDEX);
         assertTrue(driver.getPageSource().contains("Joao"));
-
-        if (driver != null) tearDown();
     }
 }

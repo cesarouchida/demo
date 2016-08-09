@@ -16,28 +16,36 @@ public class IndexControllerTest {
 
     private WebDriver driver;
 
-    @Before
+//    @Before
     public void setUp(){
         System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
         driver = new ChromeDriver();
     }
 
-    @After
+//    @After
     public void tearDown(){
         driver.close();
     }
 
     @Test
     public void acessaPaginaInicial(){
+        if(this.driver == null) setUp();
+
         driver.get(HOME);
 
         assertTrue(driver.getPageSource().contains("Olá Mundo"));
+
+        if(this.driver != null) tearDown();
     }
 
-    @Test
-    public void verificaSeTemNomeContato(){
-        driver.get(INDEX);
-
-        assertTrue(driver.getPageSource().contains("Joao"));
-    }
+//    @Test
+//    public void verificaSeTemNomeContato(){
+//        if(this.driver == null) setUp();
+//
+//        driver.get(INDEX);
+//
+//        assertTrue(driver.getPageSource().contains("Joao"));
+//
+//        if(this.driver != null) tearDown();
+//    }
 }

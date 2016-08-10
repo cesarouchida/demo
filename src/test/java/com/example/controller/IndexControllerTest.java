@@ -18,13 +18,14 @@ public class IndexControllerTest {
 
 //    @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
+//        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Google\\Chrome\\Application\\chromedriver.exe");
         driver = new ChromeDriver();
     }
 
 //    @After
     public void tearDown(){
-        driver.close();
+        driver.quit();
     }
 
     @Test
@@ -38,14 +39,14 @@ public class IndexControllerTest {
         if(this.driver != null) tearDown();
     }
 
-//    @Test
-//    public void verificaSeTemNomeContato(){
-//        if(this.driver == null) setUp();
-//
-//        driver.get(INDEX);
-//
-//        assertTrue(driver.getPageSource().contains("Joao"));
-//
-//        if(this.driver != null) tearDown();
-//    }
+    @Test
+    public void verificaSeTemNomeContato(){
+        if(this.driver == null) setUp();
+
+        driver.get(INDEX);
+
+        assertTrue(driver.getPageSource().contains("Joao"));
+
+        if(this.driver != null) tearDown();
+    }
 }

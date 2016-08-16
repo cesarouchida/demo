@@ -12,7 +12,7 @@ public class IndexControllerTest extends SeleniumUtils {
 
     @Test
     public void acessaPaginaInicial(){
-//        if(this.driver == null) setUp();
+        if(this.driver == null) setUp();
 
         driver.get(HOME);
 
@@ -20,20 +20,20 @@ public class IndexControllerTest extends SeleniumUtils {
 
         tiraScreenshot(this.getClass().getSimpleName(), driver);
 
-//        if(this.driver != null) tearDown();
+        if(this.driver != null) tearDown();
     }
 
-    @Test
-    public void verificaSeTemNomeContato(){
+//    @Test
+//    public void verificaSeTemNomeContato(){
 //        if(this.driver == null) setUp();
-
-        driver.get(INDEX);
-
-        assertTrue(driver.getPageSource().contains("Joao"));
-
-        tiraScreenshot(this.getClass().getSimpleName(), driver);
-
+//
+//        driver.get(INDEX);
+//
+//        assertTrue(driver.getPageSource().contains("Joao"));
+//
+//        tiraScreenshot(this.getClass().getSimpleName(), driver);
+//
 //        if(this.driver != null) tearDown();
-
-    }
+//
+//    }
 }

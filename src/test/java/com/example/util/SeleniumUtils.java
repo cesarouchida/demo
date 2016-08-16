@@ -25,7 +25,7 @@ public class SeleniumUtils {
         workingDir = getDir();
     }
 
-    @Before
+//    @Before
     public void setUp(){
 //        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
 //        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Google\\Chrome\\Application\\chromedriver.exe");
@@ -33,7 +33,7 @@ public class SeleniumUtils {
         driver = new FirefoxDriver();
     }
 
-    @After
+//    @After
     public void tearDown(){
         driver.quit();
     }

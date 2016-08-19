@@ -23,17 +23,17 @@ public class IndexControllerTest extends SeleniumUtils {
         if(this.driver != null) tearDown();
     }
 
-//    @Test
-//    public void verificaSeTemNomeContato(){
-//        if(this.driver == null) setUp();
-//
-//        driver.get(INDEX);
-//
-//        assertTrue(driver.getPageSource().contains("Joao"));
-//
-//        tiraScreenshot(this.getClass().getSimpleName(), driver);
-//
-//        if(this.driver != null) tearDown();
-//
-//    }
+    @Test
+    public void verificaSeTemNomeContato(){
+        if(this.driver == null) setUp();
+
+        driver.get(INDEX);
+
+        assertTrue(driver.getPageSource().contains("Joao"));
+
+        tiraScreenshot(this.getClass().getSimpleName(), driver);
+
+        if(this.driver != null) tearDown();
+
+    }
 }

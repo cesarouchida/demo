@@ -3,10 +3,13 @@ package com.example.util;
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,8 +24,38 @@ public class SeleniumUtils {
 
     protected WebDriver driver ;
 
+    private static final String PARAMETRO_WEB_BROWSER = "webBrowser";
+
+    private static final String INTERNET_EXPLORER = "ie";
+
+    private static boolean isInternetExplorer;
+
     static {
         workingDir = getDir();
+    }
+
+//    @BeforeClass
+    private static void setUpBeforeClass() throws Exception {
+        String webBrowser = System.getProperty(PARAMETRO_WEB_BROWSER);
+
+        if (webBrowser==null) {
+            webBrowser="N/A";
+        }
+
+        System.out.println("web browser especificado : " + webBrowser);
+
+        isInternetExplorer = (webBrowser.equalsIgnoreCase(INTERNET_EXPLORER));
+    }
+
+    private WebDriver getDriver() {
+        if (isInternetExplorer){
+//            return new InternetExplorerDriver();
+            System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Google\\Chrome\\Application\\chromedriver.exe");
+            return new ChromeDriver();
+        }
+        else {
+            return new FirefoxDriver();
+        }
     }
 
 //    @Before
@@ -30,7 +63,13 @@ public class SeleniumUtils {
 //        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
 //        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Google\\Chrome\\Application\\chromedriver.exe");
 //        driver = new ChromeDriver();
-        driver = new FirefoxDriver();
+//        driver = new FirefoxDriver();
+        try {
+            setUpBeforeClass();
+            driver = getDriver();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 //    @After

@@ -6,6 +6,6 @@ stage 'Checkout'
 
 stage 'Build & Archive'
     node('master'){
-        sh 'export testando; ./build.sh'
+        sh 'mvn clean package'
         step([$class: 'ArtifactArchiver', artifacts: 'meu_aplicativo/build/outputs/war/meu_aplicativo.war'])
     }
